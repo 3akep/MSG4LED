@@ -40,11 +40,22 @@ byte MSG4LED::CheckLEDs (byte ColorPin) {
 // ----------------------------------
 void MSG4LED::ChangeOrder (byte _pos_1, byte _pos_2, byte _pos_3, byte _pos_4) {
 
-  // Check pins number
-  if (_pos_1 >= 0) { LEDorder[0] = _pos_1; } else { LEDorder[0] = LEDS[0]; }
-  if (_pos_2 >= 0) { LEDorder[1] = _pos_2; } else { LEDorder[1] = LEDS[1]; }
-  if (_pos_3 >= 0) { LEDorder[2] = _pos_3; } else { LEDorder[2] = LEDS[2]; }
-  if (_pos_4 >= 0) { LEDorder[3] = _pos_4; } else { LEDorder[3] = LEDS[3]; }
+  // Check pins number and apply new LEDorder value  
+  if (CheckLEDs(_pos_1) > 0) { LEDorder[0] = _pos_1; } else { LEDorder[0] = LEDS[0]; }  
+  if (CheckLEDs(_pos_2) > 0) { LEDorder[1] = _pos_2; } else { LEDorder[1] = LEDS[1]; }  
+  if (CheckLEDs(_pos_3) > 0) { LEDorder[2] = _pos_3; } else { LEDorder[2] = LEDS[2]; }  
+  if (CheckLEDs(_pos_4) > 0) { LEDorder[3] = _pos_4; } else { LEDorder[3] = LEDS[3]; }
+  
+}
+// ==================================
+
+// ----------------------------------
+// Reset LEDs order
+// ----------------------------------
+void MSG4LED::ResetOrder () {  
+  
+  // LEDOrder as Init pins number  
+  for (int i = 0; i < 4; i++) { LEDorder[i] = LEDS[i]; }  
   
 }
 // ==================================
@@ -56,6 +67,8 @@ void MSG4LED::ChangeOrder (byte _pos_1, byte _pos_2, byte _pos_3, byte _pos_4) {
 byte MSG4LED::ReMap (long x, long max_x) {
   
   byte ColorPin;
+  
+  if (x > max_x) {max_x = x;} // Correction for wrong value
   
   // Convert X-value, use a function called map()
   ColorPin = LEDorder[map(x, 0, max_x, 0, 4)];
