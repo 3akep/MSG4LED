@@ -23,7 +23,9 @@ class MSG4LED
       
       // Change LEDs Order
       void ChangeOrder (byte _pos_1, byte _pos_2, byte _pos_3, byte _pos_4);
-      
+      // Reset LEDs Order      
+      void ResetOrder ();
+  
       // ReMap any Digital value to 4LED
       byte ReMap (long x, long max_x);
       //long map(long x, long in_min, long in_max, long out_min, long out_max)
