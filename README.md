@@ -3,7 +3,7 @@
 
 All in our World can be presented by 4 LEDs (BLUE, RED, GREEN, YELLOW), this is a Arduino-library can help you do it.
 
-Описание функций на русском язык: http://amigors.com/msg4led/
+Описание функций на русском язык: https://ecoum.com/msg4led/
 
 ## Structure Elements class MSG4LED**
 **byte LEDS[]** - Pins LED Array
