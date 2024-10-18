@@ -5,7 +5,7 @@ All in our World can be presented by 4 LEDs (BLUE, RED, GREEN, YELLOW), this is 
 
 Описание функций на русском язык: https://ecoum.com/msg4led/
 
-## Structure Elements class MSG4LED**
+## Structure Elements class **MSG4LED**
 **byte LEDS[]** - Pins LED Array
 
 **byte LEDorder[]** - Pins LED Array (elements order used for some functions)
